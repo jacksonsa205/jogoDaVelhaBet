@@ -1,10 +1,10 @@
 const express = require('express');
-const path = require('path');
 const router = express.Router();
+const path = require('path');
 
-// Serve the index.html file for the root route
+// Rota principal
 router.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../views/index.html'));
+    res.sendFile(path.join(__dirname, '../views', 'index.html'));
 });
 
 module.exports = router;
