@@ -93,7 +93,7 @@ function endGame(winner) {
         const message =
             playerBet === winner
                 ? `Parabéns! ${winner} venceu. Você ganhou R$${earnings.toFixed(2)}!`
-                : `venceu. Você perdeu sua aposta de R$${betAmount.toFixed(2)}.`;
+                : `${winner} venceu. Você perdeu sua aposta de R$${betAmount.toFixed(2)}.`;
 
         resultElement.innerHTML = message.replace(
             winner,
