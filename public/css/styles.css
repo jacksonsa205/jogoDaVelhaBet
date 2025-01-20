@@ -17,7 +17,7 @@ body {
 }
 
 h1 {
-  margin-top: 20px;
+  
   font-size: 2.5rem;
   color: #2c3e50;
   text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
@@ -28,7 +28,8 @@ h1 {
   align-items: center; /* Alinha os itens na mesma linha */
   justify-content: center;
   gap: 10px; /* Espaçamento entre os itens */
-  margin: 20px;
+  margin: 10px;
+  width: 100%;
   padding: 15px;
   background: #ffffff;
   border-radius: 10px;
@@ -65,21 +66,25 @@ h1 {
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
+/* Centralizar o tabuleiro no contêiner pai */
 #board {
   display: grid;
-  grid-template-columns: repeat(3, 120px);
-  grid-gap: 10px;
-  margin-top: 10px;
+  grid-template-columns: repeat(3, 120px); /* Grade com 3 colunas */
+  grid-gap: 10px; /* Espaçamento entre as células */
+  margin: center;
   padding: 10px;
   background: #ffffff;
   border-radius: 10px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  align-self: center; /* Centraliza verticalmente em um flexbox ou grid */
+  justify-self: center; /* Centraliza horizontalmente em um flexbox ou grid */
 }
 
+/* Garantir que as células estejam bem alinhadas */
 .cell {
   width: 120px;
   height: 120px;
-  display: flex;
+  display: flex; /* Centraliza o conteúdo da célula */
   align-items: center;
   justify-content: center;
   font-size: 2.5rem;
@@ -90,6 +95,7 @@ h1 {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
 
 .cell.X {
   color: #3498db;
@@ -115,9 +121,8 @@ h1 {
 #odds-container {
   display: flex;
   justify-content: space-around;
-  width: 100%;
-  max-width: 400px;
-  margin: 20px 0;
+  width: 400px;
+  margin: 10px 0;
   padding: 10px;
   background-color: #ffffff;
   border-radius: 10px;
@@ -143,5 +148,99 @@ h1 {
   border: 2px solid #e74c3c;
   background-color: #fdecec; /* Fundo claro para destaque */
 }
+
+
+/* Header */
+#main-header {
+  background-color: #ffffff; /* Fundo branco */
+  padding: 10px 20px;
+  border-bottom: 1px solid #ddd; /* Linha fina para separação */
+  position: fixed; /* Fixa o header no topo */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ocupa toda a largura */
+  z-index: 1000; /* Fica acima do conteúdo */
+  display: flex; /* Flexbox para alinhamento */
+  justify-content: space-between; /* Espaço entre o título e os links */
+  align-items: center; /* Centraliza verticalmente */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+#main-header h1 {
+  font-size: 20px;
+  color: #333;
+  margin: 0;
+}
+
+#main-header nav {
+  margin-left: auto; /* Empurra os links para o canto direito */
+}
+
+#main-header nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#main-header nav ul li {
+  margin-left: 20px; /* Espaçamento entre os itens do menu */
+}
+
+#main-header nav ul li a {
+  color: #007bff; /* Azul para links */
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+#main-header nav ul li a:hover {
+  color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+#main-header nav ul li a:active {
+  color: #003f7f; /* Azul ainda mais escuro ao clicar */
+}
+
+/* Adiciona margem no conteúdo para não ficar por baixo do header */
+body {
+  padding-top: 60px; /* Compensa a altura do header */
+}
+
+
+/* Layout principal */
+main {
+  display: flex; /* Coloca os grupos lado a lado */
+  justify-content: space-between; /* Espaço entre os grupos */
+  align-items: flex-start; /* Alinha ao topo */
+  gap: 10px; /* Espaçamento entre as divisões */
+  width: 100%;
+ 
+}
+
+/* Grupos à esquerda e à direita */
+.grupo-esquerda,
+.grupo-direita {
+  flex: 1; /* Ambos ocupam a mesma largura */
+  min-width: 300px; /* Define uma largura mínima para evitar colapsos */
+  padding: 5px;
+  margin-right: 10px;
+  
+}
+
+/* Ajustes específicos para cada grupo */
+.grupo-esquerda {
+  text-align: left;
+}
+
+.grupo-direita {
+  text-align: left;
+  
+}
+
+
+
+
 
 

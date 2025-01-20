@@ -7,27 +7,40 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+    <!-- Header -->
+    <header id="main-header">
+        <nav>
+            <ul>
+                <li><a href="/cadastro">Cadastrar</a></li>
+                <li><a href="/login">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <h1>Jogo da Velha Bet</h1>
+    <main>
+      <div class="grupo-esquerda">
+        <div id="bet-container">
+            <label for="bet">Aposta:</label>
+            <input type="number" id="bet-input" placeholder="Valor da aposta" min="1" />
+            <select id="bet-choice">
+                <option value="X">Apostar no X (Azul)</option>
+                <option value="O">Apostar no O (Vermelho)</option>
+            </select>
+            <button id="place-bet">Apostar</button>
+        </div>
+      </div>
+      <div class="grupo-direita">
+        <div id="odds-container">
+          <p id="odds-x">X: 2.0</p>
+          <p id="odds-o">O: 1.8</p>
+        </div>
 
-    <div id="bet-container">
-        <label for="bet">Aposta:</label>
-        <input type="number" id="bet-input" placeholder="Valor da aposta" min="1" />
-        <select id="bet-choice">
-            <option value="X">Apostar no X (Azul)</option>
-            <option value="O">Apostar no O (Vermelho)</option>
-        </select>
-        <button id="place-bet">Apostar</button>
-    </div>
-    <div id="odds-container">
-      <p id="odds-x">X: 2.0</p>
-      <p id="odds-o">O: 1.8</p>
-    </div>
-  
+        <div id="board"></div>
 
-    <div id="board"></div>
-
-    <div id="result"></div>
-
+        <div id="result"></div>
+      </div>
+    </main>
     <script src="/socket.io/socket.io.js"></script>
     <script src="script/game.js"></script>
 </body>

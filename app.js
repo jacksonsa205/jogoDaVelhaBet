@@ -3,6 +3,7 @@ const path = require('path');
 const indexRouter = require('./routes/index');
 const { Server } = require('socket.io');
 const http = require('http');
+const usersRouter = require('./routes/users'); // Nova rota para usuários
 
 const app = express();
 const server = http.createServer(app);
@@ -10,12 +11,15 @@ const io = new Server(server);
 
 const PORT = 3000;
 
-// Serve static files from the "public" directory
+// Middleware
+app.use(express.json()); // Para processar JSON no corpo da requisição
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Use the router for handling routes
+// Rotas
 app.use('/', indexRouter);
+app.use('/users', usersRouter); // Adiciona todas as rotas relacionadas a usuários
 
+// WebSocket
 io.on('connection', (socket) => {
     console.log('Jogador conectado.');
 
@@ -45,12 +49,12 @@ io.on('connection', (socket) => {
     });
 });
 
-// Catch-all route for handling 404 errors
+// Catch-all para lidar com erros 404
 app.use((req, res, next) => {
     res.status(404).sendFile(path.join(__dirname, 'views', '404.html'));
 });
 
-// Start the server
+// Start do servidor
 server.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}/`);
 });
